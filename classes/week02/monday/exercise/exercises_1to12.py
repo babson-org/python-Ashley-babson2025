@@ -6,6 +6,17 @@ Write down the steps a program would need to make a cup of tea. Then implement a
 function make_tea() that prints each step.
 '''
 # enter your code here
+
+'''Another way to do it:
+steps = ['step1','step2','step3]
+def make_tea(myList):
+    myList[2] = "step 5"
+    for item in myList:
+        print(item)
+
+make_tea(steps) #passes list of steps into function and calls the function
+        '''
+
 def make_tea():
     print("How to make tea:")
     print("step one: pick tea flavor")
@@ -33,6 +44,12 @@ list.append(list[5]+2)
 list.append(list[6]+2)
 print(list)
 
+'''
+for i in range(3):
+    next = nums[-1] + 2 + i *2
+    print(next)
+'''
+
 pause=input('pause')
 clear_screen()
 '''
@@ -55,6 +72,10 @@ Write a program that prints your Python version and platform using the sys and p
 '''
 # enter your code here
 import sys
+import platform 
+import pprint
+
+pprint.pprint(dir(sys))
 print(sys.version)
 print(sys.platform)
 
@@ -67,6 +88,24 @@ Ask the user to input two numbers. Calculate and print their sum, difference, pr
 and division (both / and //).
 '''
 # enter your code here
+
+'''
+txt = 'please enter an integer:'
+while True:
+    try:
+        x = int(input(txt))
+        break
+    except ValueError:
+        txt = 'follow directions, enter a number:'
+
+        other functions instead of operators:
+        - total
+        - diff
+        - prod
+        - div 
+        - flr (rounded down div)
+    '''
+#program will crash in this version, use try and except block to mitigate crash from user
 num1 = int(input("enter first number:"))
 num2 = int(input("enter second number:"))
 print("Here are some math functions")
