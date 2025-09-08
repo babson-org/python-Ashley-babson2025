@@ -20,7 +20,8 @@
     "editor.minimap.showSlider": "mouseover",
 
     // Code Runner settings
-    "code-runner.runInTerminal": true
+    "code-runner.runInTerminal": true,
+    "python.REPL.enableREPLSmartSend": false
 }
 
 
