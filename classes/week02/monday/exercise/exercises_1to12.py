@@ -222,3 +222,8 @@ print(sum(numbers)/len(numbers))
 
 pause=input('pause')
 clear_screen()
+
+
+
+
+
