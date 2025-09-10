@@ -1,6 +1,6 @@
 """
 Lab 1 – Python Basics
-Author: <Your Name>
+Author: <Ashley Braren>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
 

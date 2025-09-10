@@ -213,6 +213,7 @@ and read it back to print it.
 quote = input("Enter your favorite quote:")
 with open('quotes.txt', 'w') as f:
     f.write(quote)
+    #w stands for write, f for file, can be anything 
 with open('quotes.txt', 'r') as f:
     content = f.read()
 print(content) 
