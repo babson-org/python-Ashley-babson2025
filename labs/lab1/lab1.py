@@ -18,14 +18,26 @@ def draw_diamond():
         except ValueError:
             print("Please enter a numeric value")
     print(f"You entered: {height}")
+# TODO: Draw the top half of the diamond
+#have to add 2 stars to i for each additional row 
+#have to subtract spaces with each row 
+    for i in range(1,height + 1,2):
+        space = (height - i) // 2
+        print(" "* spaces + "*" * i)
+        #finish bottom half come back to 
+# TODO: Draw the bottom half of the diamond
+# start with most stars and decrease on way down starting with stars then add spaces
+    for i in range(1,"height"):
+        #make space var for here too 
+        print("*"* + " "(height+1))
+draw_diamond()
 
-    # TODO: Draw the top half of the diamond
-#FIND BEST WAY TO DRAW SOMETHING
+  
 
-    # TODO: Draw the bottom half of the diamond
+
 
 # Uncomment to test Part 1
-# draw_diamond()
+draw_diamond()
 
 
 # ==============================
