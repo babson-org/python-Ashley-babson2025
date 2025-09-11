@@ -8,14 +8,20 @@ Instructions: Complete each part below. Save your work and commit + sync in Code
 # Part 1: Draw a Diamond
 # ==============================
 def draw_diamond():
-    """
-    Ask the user for an odd number for the diamond height
-    and print a symmetric diamond of that height.
-    """
     # TODO: Prompt user for an odd number
-    height = int(input("Enter an odd number for the diamond height: "))
+    while True:
+        try:
+            height = int(input("Enter an odd number for the diamond height: "))
+            if height % 2 == 0 : 
+                print('Please enter an ODD number')
+                continue
+            break
+        except ValueError:
+            print("Please enter a numeric value")
+    print(f"You entered: {height}")
 
     # TODO: Draw the top half of the diamond
+#FIND BEST WAY TO DRAW SOMETHING
 
     # TODO: Draw the bottom half of the diamond
 
