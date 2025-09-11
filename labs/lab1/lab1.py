@@ -3,7 +3,6 @@ Lab 1 – Python Basics
 Author: <Ashley Braren>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
-
 # ==============================
 # Part 1: Draw a Diamond
 # ==============================
