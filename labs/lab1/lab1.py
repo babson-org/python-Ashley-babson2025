@@ -3,6 +3,7 @@ Lab 1 – Python Basics
 Author: <Ashley Braren>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
+#FINISH DIAMON!!!!!!!!!!
 # ==============================
 # Part 1: Draw a Diamond
 # ==============================
@@ -21,24 +22,16 @@ def draw_diamond():
 # TODO: Draw the top half of the diamond
 #have to add 2 stars to i for each additional row 
 #have to subtract spaces with each row 
-    for i in range(1,height + 1,2):
+    for i in range(1,height + 1,2):#step, how much increases by
         space = (height - i) // 2
-        print(" "* spaces + "*" * i)
+        print(" "* space + "*" * i)
         #finish bottom half come back to 
 # TODO: Draw the bottom half of the diamond
 # start with most stars and decrease on way down starting with stars then add spaces
-    for i in range(1,"height"):
-        #make space var for here too 
-        print("*"* + " "(height+1))
+    for i in range(height-2, 0 , -2 ): #range(start,stop,step) - the middle row is in the top half, so height starts after first 2 
+        space = (height - i )//2
+        print(" " * space + "*" * i)
 draw_diamond()
-
-  
-
-
-
-# Uncomment to test Part 1
-draw_diamond()
-
 
 # ==============================
 # Part 2: Count Letters, Words, and Sentences
@@ -53,21 +46,30 @@ def text_analysis():
     """
     # TODO: Get user input
     text = input("Enter some text: ")
-
+    
     # TODO: Count letters
     letters = 0
+    for az in text:
+        if az.isalpha():
+            letters += 1
+    print("Letter count:", letters)
 
     # TODO: Count words
+# use len after splits!
+    words = text.split(" ", )
+    word_num = len(words)
+    print("Number of words:", word_num)
 
     # TODO: Count sentences
+# count how many . ? ! there are with a count 
 
     # TODO: Print the results
     print(f"Letters: {letters}")
-    print(f"Words: {0}")        # replace 0
+    print(f"Words: {word_num}")        # replace 0
     print(f"Sentences: {0}")    # replace 0
 
 # Uncomment to test Part 2
-# text_analysis()
+text_analysis()
 
 
 # ==============================
