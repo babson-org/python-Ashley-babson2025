@@ -3,12 +3,12 @@ Lab 1 – Python Basics
 Author: <Ashley Braren>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
-#FINISH DIAMON!!!!!!!!!!
 # ==============================
 # Part 1: Draw a Diamond
 # ==============================
 def draw_diamond():
     # TODO: Prompt user for an odd number
+    #make sure number entered doesn't crash from user input with loop
     while True:
         try:
             height = int(input("Enter an odd number for the diamond height: "))
@@ -20,15 +20,22 @@ def draw_diamond():
             print("Please enter a numeric value")
     print(f"You entered: {height}")
 # TODO: Draw the top half of the diamond
-#have to add 2 stars to i for each additional row 
-#have to subtract spaces with each row 
-    for i in range(1,height + 1,2):#step, how much increases by
+    for i in range(1,height + 1,2):
+        '''
+        - start at 1 so 0 doesn't print
+        - height + 1 creates the middle row so there's no duplicate with bottom half
+        - step is 2 since 2 stars have to be added in each row
+        '''
         space = (height - i) // 2
         print(" "* space + "*" * i)
         #finish bottom half come back to 
 # TODO: Draw the bottom half of the diamond
-# start with most stars and decrease on way down starting with stars then add spaces
-    for i in range(height-2, 0 , -2 ): #range(start,stop,step) - the middle row is in the top half, so height starts after first 2 
+'''
+- height starts 2 below since the top half has more to create middle
+- spaces 
+- i counts up on the top and down on the bottom
+'''
+    for i in range(height-2, 0 , -2 ): #stop at 0, not 1 because last num not included
         space = (height - i )//2
         print(" " * space + "*" * i)
 draw_diamond()
@@ -52,21 +59,21 @@ def text_analysis():
     for az in text:
         if az.isalpha():
             letters += 1
-    print("Letter count:", letters)
+            
 
     # TODO: Count words
 # use len after splits!
     words = text.split(" ", )
     word_num = len(words)
-    print("Number of words:", word_num)
 
     # TODO: Count sentences
 # count how many . ? ! there are with a count 
+    sent = text.count("?") + text.count ("!") + text.count (".")
 
     # TODO: Print the results
     print(f"Letters: {letters}")
     print(f"Words: {word_num}")        # replace 0
-    print(f"Sentences: {0}")    # replace 0
+    print(f"Sentences: {sent}")    # replace 0
 
 # Uncomment to test Part 2
 text_analysis()
