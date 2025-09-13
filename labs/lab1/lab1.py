@@ -28,16 +28,15 @@ def draw_diamond():
         '''
         space = (height - i) // 2
         print(" "* space + "*" * i)
-        #finish bottom half come back to 
+    for i in range(height-2, 0 , -2 ): #stop at 0, not 1 because last num not included
+        space = (height - i )//2
+        print(" " * space + "*" * i)
 # TODO: Draw the bottom half of the diamond
 '''
 - height starts 2 below since the top half has more to create middle
 - spaces 
 - i counts up on the top and down on the bottom
 '''
-    for i in range(height-2, 0 , -2 ): #stop at 0, not 1 because last num not included
-        space = (height - i )//2
-        print(" " * space + "*" * i)
 draw_diamond()
 
 # ==============================
@@ -82,6 +81,7 @@ text_analysis()
 # ==============================
 # Part 3: Caesar Cipher – Encrypt and Decrypt
 # ==============================
+#SHIFTING BY ASSIGNED NUMBER TO LETTER NOT BY NUMBER IN STRING!!!
 def caesar_cipher():
     """
     Ask the user for text and a shift value.
@@ -91,19 +91,44 @@ def caesar_cipher():
     text = input("Enter text: ")
 
     # TODO: Get shift value
-    shift = int(input("Enter shift value (integer): "))
+    while True:
+        try:
+            shift = int(input("Enter shift value (integer): "))
+            break
+        except ValueError:
+            print("Please enter a numeric value")
+    print(f"You entered: {shift}")
 
     # TODO: Ask user whether to encrypt or decrypt
-    choice = input("Type 'e' to encrypt or 'd' to decrypt: ").lower()
+    while True:
+        choice = input("Type 'e' to encrypt or 'd' to decrypt: ").lower()
+        if choice in ["e", "d"]:
+            break
+        else:
+            print("Invalid choice. Please type 'e' or 'd'.")
 
     # TODO: Implement encryption and decryption logic
     result = ""
+    #assigning number to char in text 
+    for char in text: 
+        if char.isalpha():
+            start = ord('A') if char.isupper() else ord ('a')
+            position = ord(char)- start
+    #encryption
+            if choice == 'e':
+                new_ord = (position + shift) % 26 #wraps to beggining for end letters
+            else: 
+                new_ord = (position - shift) % 26
+            newchar = chr(start + new_ord)
+            result += newchar
+        else:
+            result += char
 
     # TODO: Print the final result
     print("Result:", result)
 
 # Uncomment to test Part 3
-# caesar_cipher()
+caesar_cipher()
 
 
 # ==============================
