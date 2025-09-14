@@ -62,8 +62,7 @@ def text_analysis():
 
     # TODO: Count words
 # use len after splits!
-    words = text.split(" ", )
-    word_num = len(words)
+    words = len(text.split())
 
     # TODO: Count sentences
 # count how many . ? ! there are with a count 
@@ -71,7 +70,7 @@ def text_analysis():
 
     # TODO: Print the results
     print(f"Letters: {letters}")
-    print(f"Words: {word_num}")        # replace 0
+    print(f"Words: {words}")        # replace 0
     print(f"Sentences: {sent}")    # replace 0
 
 # Uncomment to test Part 2
@@ -152,3 +151,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
