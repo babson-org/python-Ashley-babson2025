@@ -6,6 +6,20 @@ Instructions: Complete each part below. Save your work and commit + sync in Code
 # ==============================
 # Part 1: Draw a Diamond
 # ==============================
+'''
+Draw diamon function: The goal of this function is to take user input
+and draw a diamond with the height of the user input. The height is how many 
+rows the diamond will fill
+
+Process:
+- Take user numeric user input using a loop to prevent user crash
+- Drawing the top half, including the middle row (widest point) 
+    - For this, taking input/2 + 1 to capture middle 
+    - Spaces in the middle will have to increase by 2 to push both * to next widest point
+- Drawing bottom half, deducting a row since the middle is counted for
+    - input/2 - 1 to not add an extra row
+    - decrease spaces in middle by two to taper towards one point at end 
+'''
 def draw_diamond():
     # TODO: Prompt user for an odd number
     #make sure number entered doesn't crash from user input with loop
@@ -27,11 +41,29 @@ def draw_diamond():
         - step is 2 since 2 stars have to be added in each row
         '''
         space = (height - i) // 2
-        print(" "* space + "*" * i)
+        if i == 1: 
+            print(" " * space + "*") 
+            # adds a single start -> * space adds spaces to center it, works like a grid
+            '''
+            4 x 4 grid of printed characters
+            _ _ _ *
+            _ _ * _ 
+            _ * _ _ 
+            * _ _ _
+            
+            '''
+        else: 
+            print(" " * space + "*" + " " * (i- 2) + "*")
+            # _*___* -> first space, start, inside space (i-2) since 2 stars, followed by second *
+
+# TODO: Draw the bottom half of the diamond
     for i in range(height-2, 0 , -2 ): #stop at 0, not 1 because last num not included
         space = (height - i )//2
-        print(" " * space + "*" * i)
-# TODO: Draw the bottom half of the diamond
+        if i == 1: 
+            print(" " * space + "*")
+        else: 
+            print(" " * space + "*" + " " * (i- 2) + "*")
+
 '''
 - height starts 2 below since the top half has more to create middle
 - spaces 
@@ -51,14 +83,20 @@ def text_analysis():
         - Number of sentences (., ?, !) 
     """
     # TODO: Get user input
-    text = input("Enter some text: ")
+    text = input("Enter some text: ") #add . strip function
     
+    # initialize counter
+    #letters = 0 - count alphabetical characters
+    # words = 1 - starts at 1 to count last word
+    # setences = 0 - count sentence ending punctuation
+
     # TODO: Count letters
     letters = 0
     for az in text:
         if az.isalpha():
             letters += 1
-            
+
+# put all in for loop - if char alpha letter += 1, elif char == ' ' words = += 1 elif char in (.,?,!) sent = += 1
 
     # TODO: Count words
 # use len after splits!
@@ -81,6 +119,7 @@ text_analysis()
 # Part 3: Caesar Cipher – Encrypt and Decrypt
 # ==============================
 #SHIFTING BY ASSIGNED NUMBER TO LETTER NOT BY NUMBER IN STRING!!!
+#MAKE ALL UPPERCASE OR ALL LOWERCASE TO ELIMINAT EXTRA ORD STEPS
 def caesar_cipher():
     """
     Ask the user for text and a shift value.
