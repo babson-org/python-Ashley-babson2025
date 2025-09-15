@@ -129,8 +129,16 @@ text_analysis()
 #MAKE ALL UPPERCASE OR ALL LOWERCASE TO ELIMINAT EXTRA ORD STEPS
 def caesar_cipher():
     """
-    Ask the user for text and a shift value.
-    Provide options to encrypt or decrypt the text using a Caesar cipher.
+    Caeser Cipher Function: Taking user input and shifting values to code or decode a message
+    Process:
+    - Take user text input
+    - Take user number input - this is what characters are "shifting" by
+    - Each letter in alphabet has a numeric assignment (ord function)
+    - with original message, assign each letter to its corresponding value
+    - to encrypt - ADD shift number to ord value and assign to new variable
+        -  "new number" = original number + shift, showing the letter with the corresponding NEW value
+    - to decrypt do same but REVERSE shift in opposite direction
+        - moves letters back from encrypted message by the value they were shifted by
     """
     # TODO: Get user input text
     text = input("Enter text: ").lower()
