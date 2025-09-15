@@ -7,7 +7,7 @@ Instructions: Complete each part below. Save your work and commit + sync in Code
 # Part 1: Draw a Diamond
 # ==============================
 '''
-Draw diamon function: The goal of this function is to take user input
+Draw diamond function: The goal of this function is to take user input
 and draw a diamond with the height of the user input. The height is how many 
 rows the diamond will fill
 
@@ -76,14 +76,19 @@ draw_diamond()
 # ==============================
 def text_analysis():
     """
-    Ask the user for a block of text.
+    Text Analysis Function: Take user input and give a simple overview of the text 
+    by counting letters, words, and sentences combining tools from previous exercises
+
+    Process:
+    - Ask the user for a block of text - is there a loop to prevent crash?
+    - using alpha function, count characters that are LETTERS
     Count and display:
         - Number of letters (only count a-zA-Z)
         - Number of words   (use split())
         - Number of sentences (., ?, !) 
     """
     # TODO: Get user input
-    text = input("Enter some text: ") #add . strip function
+    text = input("Enter some text: ").strip()
     
     # initialize counter
     #letters = 0 - count alphabetical characters
@@ -100,16 +105,18 @@ def text_analysis():
 
     # TODO: Count words
 # use len after splits!
-    words = len(text.split())
+    words = len(text.split()) 
+    # breaking text string into separate strings based on word
 
     # TODO: Count sentences
 # count how many . ? ! there are with a count 
     sent = text.count("?") + text.count ("!") + text.count (".")
 
     # TODO: Print the results
+    # { } prints the value of the var 
     print(f"Letters: {letters}")
-    print(f"Words: {words}")        # replace 0
-    print(f"Sentences: {sent}")    # replace 0
+    print(f"Words: {words}")  #  broke string into sepaarte strings, counting separate strings     
+    print(f"Sentences: {sent}")    
 
 # Uncomment to test Part 2
 text_analysis()
@@ -126,7 +133,7 @@ def caesar_cipher():
     Provide options to encrypt or decrypt the text using a Caesar cipher.
     """
     # TODO: Get user input text
-    text = input("Enter text: ")
+    text = input("Enter text: ").lower()
 
     # TODO: Get shift value
     while True:
@@ -150,14 +157,16 @@ def caesar_cipher():
     #assigning number to char in text 
     for char in text: 
         if char.isalpha():
-            start = ord('A') if char.isupper() else ord ('a')
+            start = ord ('a')
             position = ord(char)- start
+    # ord function: unicode integer value for letter -> each letter has numeric representation
     #encryption
             if choice == 'e':
                 new_ord = (position + shift) % 26 #wraps to beggining for end letters
             else: 
                 new_ord = (position - shift) % 26
             newchar = chr(start + new_ord)
+        #chr function: converts unicode integer value to a letter
             result += newchar
         else:
             result += char
@@ -167,6 +176,7 @@ def caesar_cipher():
 
 # Uncomment to test Part 3
 caesar_cipher()
+
 
 
 # ==============================
