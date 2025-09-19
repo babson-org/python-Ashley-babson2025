@@ -59,18 +59,16 @@ def draw_diamond():
     print(f"You entered: {height}")
 
 
-
-
-
-
-
-
 # TODO: Draw the top half of the diamond
     for i in range(1,height + 1,2):
         '''
         - start at 1 so 0 doesn't print
         - height + 1 creates the middle row so there's no duplicate with bottom half
         - step is 2 since 2 stars have to be added in each row
+        '''
+
+        '''
+        above description seems vague, hard to understand.
         '''
         space = (height - i) // 2
         print(space)
@@ -90,7 +88,7 @@ def draw_diamond():
             # _*___* -> first space, start, inside space (i-2) since 2 stars, followed by second *
 
 # TODO: Draw the bottom half of the diamond
-    for i in range(height-2, 0 , -2 ): #stop at 0, not 1 because last num not included
+    for i in range(height - 2, 0 , -2 ): #stop at 0, not 1 because last num not included
         space = (height - i )//2
         if i == 1: 
             print(" " * space + "*")
@@ -143,7 +141,8 @@ def text_analysis():
 
     # TODO: Count sentences
 # count how many . ? ! there are with a count 
-    sent = text.count("?") + text.count ("!") + text.count (".")
+    ''' Excellent!'''
+    sent = text.count("?") + text.count ("!") + text.count (".")    
 
     # TODO: Print the results
     # { } prints the value of the var 
