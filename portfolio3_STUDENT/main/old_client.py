@@ -150,16 +150,16 @@ def select_client(clients):
         return None
 
     menu_items = []
-    for client in clients:
-        name = client['fname'] + ' ' + client['lname']
+    for client in clients: #list of dictionaries of clients 
+        name = client['fname'] + ' ' + client['lname'] #get first and last name 
         menu_items.append(name)
         while True:
             choice = display_menu(menu_items)
-            if choice == '':
+            if choice == None:
                 return None                
             else:
                 #what does choice contain here? what are we returning?
-                return clients[choice - 1] 
+                return clients[choice - 1] #index starting at 0
 
 # ---------- Menu Handling ----------
 def display_menu(menu_items):

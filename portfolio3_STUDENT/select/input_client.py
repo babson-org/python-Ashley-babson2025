@@ -12,7 +12,7 @@ def input_client(clients):
 
     next_id = get_next_id(clients)
 
-    active_client = {
+    active_client = { #this is the client that I am working with right now 
         'id': next_id,
         'fname': fname,
         'lname': lname,
@@ -20,7 +20,7 @@ def input_client(clients):
         'transactions': []
     }
 
-    clients.append(active_client)
-    contribution_input(active_client, clients)
+    clients.append(active_client) #by appending, in the list of clients have a dictionary of this active client 
+    contribution_input(active_client, clients) #take care of getting first contribution 
 
     return 
