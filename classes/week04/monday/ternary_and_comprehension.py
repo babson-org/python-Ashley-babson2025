@@ -52,6 +52,7 @@ print()
 
 rows = [[f"{i}{j} " for j in range(4)] for i in range(3)]
 print(rows)
+#whatever in outside bracket goes for j loop, inside goes for i - embedded in j loop
 
 ml = ['a', 1, 'c']
 
