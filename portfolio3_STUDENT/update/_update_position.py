@@ -40,6 +40,7 @@ def _update_position(active_client, transaction):
             #CHANGE CASH POSITION BY SUBTRACTING COST 
             # ADD TRANSACTION STOCKS TO PORTFOLIO 
             #Position in active client positions 
+            #********update average cost when buying a security 
         else:
             print("Not enough cash. Please make a contribution.")
 
