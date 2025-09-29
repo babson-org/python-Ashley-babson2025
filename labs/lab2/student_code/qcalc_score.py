@@ -9,19 +9,19 @@ def calc_score(board: list[int]):
         else return 0
     """
     '''
-    1 | 2 | 3
+    0 | 1 | 2
     -----------
-    4 | 5 | 6
+    3 | 4 | 5
     -----------
-    7 | 8 | 9
+    6 | 7 | 8
     function: sums up rows, col, diagonals to determine winner mathematically 
     process:
         - set list index values to corrsponding letter --> a = item 1 in board 
         - Sum of wins= absolute value is 30
             line sum: 
-                - sum 1,2,3
-                - sum 4,5,6
-                - sum 7,8,9
+                - sum 0,1,2
+                - sum 3,4,5
+                - sum 6,7,8
             column sum: 
                 - sum a,d,g
                 - sum b,e,h
@@ -35,9 +35,14 @@ def calc_score(board: list[int]):
     # TODO: For each of the 8 ways to win
     # TODO: Check the cells in each row, column, or diagonal using line_sum
     # TODO: Return 0 if line_sum() didn't return 30 or -30
+
+    
    
-    winning_line = [(1,2,3), (4,5,6), (7,8,9), (1,4,7), (2,5,8), (3,6,9), (1,5,9), (3,5,7)]
+    winning_line = [(0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)]
 #checking winning lines
+    #if abs (board[0] + board[1] + board[2]) == 10: return board[0] + board[1] + board[2])
+    #elif abs(board[3] + board[4] + board[5]) == 10: return board[3] + board[4] + board[5])
+    #else: return 0
     def line_sum(a, b, c):
         '''
             line_sum takes 3 numbers and if the sum is either 30

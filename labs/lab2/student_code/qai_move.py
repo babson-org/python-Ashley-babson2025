@@ -24,8 +24,10 @@ def ai_move(board: list[int]):
     # TODO: Loop through board
     
     for i in range (len(board)):
-        if abs(board[i]) != 10: # TODO: Find the first index where abs(cell) != 10
-            board[i] = 10
-            return i # TODO: Return that index as the AI's move
-        else:
-            continue
+        if abs(board[i]) != 10: return i # TODO: Find the first index where abs(cell) != 10
+            
+            #board[i] = 10
+            #return i # TODO: Return that index as the AI's move
+        #else:
+            #continue
+#by index, in above 2 is 1, 3 is 2 - have to change the index
