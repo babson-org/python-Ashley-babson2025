@@ -38,14 +38,38 @@ def print_board(board: list[int]):
     """
     
     def cell(value: int) -> str:
-        # TODO: Return 'X' if value == 10
+        # TODO: Return 'X' if value == 10 
+        #IF ROW VALUE = 10 RETURN X 
+        if value == 10:
+            return 'X'
+    
         # TODO: Return 'O' if value == -10
+        elif value == -10:
+            return 'O'
+
         # TODO: Otherwise, return str(value)  -> if not 10 or -10 return idx 1-9 as a string
+        else:
+            return str(value)
         pass
         
     clear_screen()
     # TODO: Loop through rows
+for row in range (3):
     # TODO: For each row, print formatted board row using cell()
+    #3 print functions - each cell is 3 rows of characters
+'''
+print  _ |
+print x |
+print _ |
+'''
+row_values = [cell (board[row * 3 + col])] for col in range(3)
+print ("   |   |   ")
+print(f" {row_values[0]} | {row_values[1]} | {row_values[2]} | ") # one space in between line and num
+print("   |   |   ")
+if row < 3: #print after row 1, print after row 2
+    print("-----------")
+
+
     # HINT: For each row create a list of what should be printed
     #       row_values = [ 'X', '2', '3' ] call cell() each time to get each value
     #       add the board layout:
