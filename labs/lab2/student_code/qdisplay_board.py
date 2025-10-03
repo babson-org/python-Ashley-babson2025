@@ -53,23 +53,9 @@ def print_board(board: list[int]):
         pass
         
     clear_screen()
+
     # TODO: Loop through rows
-for row in range (3):
     # TODO: For each row, print formatted board row using cell()
-    #3 print functions - each cell is 3 rows of characters
-'''
-print  _ |
-print x |
-print _ |
-'''
-row_values = [cell (board[row * 3 + col])] for col in range(3)
-print ("   |   |   ")
-print(f" {row_values[0]} | {row_values[1]} | {row_values[2]} | ") # one space in between line and num
-print("   |   |   ")
-if row < 3: #print after row 1, print after row 2
-    print("-----------")
-
-
     # HINT: For each row create a list of what should be printed
     #       row_values = [ 'X', '2', '3' ] call cell() each time to get each value
     #       add the board layout:
