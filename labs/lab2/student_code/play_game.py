@@ -140,6 +140,7 @@ def play_game():
 
     # Game over: display final board state.
     print_board(board)
+    return board
 
     # Calculate final score.
     score = calc_score(board)

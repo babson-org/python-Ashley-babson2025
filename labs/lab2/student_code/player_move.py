@@ -23,9 +23,8 @@ def player_move(board: list[int], score: dict[str, int]):
                 print("Cell is taken, please pick a new number betwee 1-9")
                 continue 
  # TODO: Assign score['player'] to the selected cell on the board
-            board[prompt-1] = score['player']        
-        #USING A BOOL STATEMENT IF TRUE, CONTINUE LOOP, IF FALSE, ADD VALUE 
-            pass
+            board[prompt-1] = score['player']  
+            break      
         except ValueError:
             prompt = "Invalid input. Try again (1-9): "
             
