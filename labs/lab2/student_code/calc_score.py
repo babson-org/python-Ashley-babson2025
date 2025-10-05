@@ -48,16 +48,18 @@ def calc_score(board: list[int]):
             line_sum takes 3 numbers and if the sum is either 30
             or -30 returns that sum otherwise do not return
         '''          
-        total = board [a], board [b], board [c]
+        
+        total = board [a] + board [b] + board [c]
         if total == 30:
             return 30
         elif total == -30: #elif just another if statement 
             return -30 
         return 0 
-#run through the winning lines of board to see if they sum 30/-30
-    for a , b , c in winning_line:
-        result = line_sum(a, b, c)
+
+    for a,b,c in winning_line:
+        result = line_sum(a,b,c)
         if result != 0:
-            return result 
-        return 0
+            return result
+    return 0
+    
 
