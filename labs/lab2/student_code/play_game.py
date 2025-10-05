@@ -140,7 +140,7 @@ def play_game():
 
     # Game over: display final board state.
     print_board(board)
-    return board
+   
 
     # Calculate final score.
     score = calc_score(board)
@@ -152,3 +152,4 @@ def play_game():
         print(f"I WON! I WON! The {ai_name} WON!!\n")
     else:
         print("It's a tie!\n")
+    return board
