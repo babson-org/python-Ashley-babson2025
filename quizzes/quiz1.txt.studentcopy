@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "69515a01",
+   "id": "0",
    "metadata": {},
    "source": [
     "# Lab Exercise: Diamond Printing and Caesar Cipher\n",
@@ -12,7 +12,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "df6247ab",
+   "id": "1",
    "metadata": {},
    "source": [
     "## Question 1: Diamond Printing\n",
@@ -31,8 +31,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "id": "b7f718f1",
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -78,20 +77,20 @@
     "\n",
     "# Top half of diamond\n",
     "leading_spaces = half\n",
-    "for star_count in range(1):               # TODO only modify this statement\n",
+    "for star_count in range(1, height + 1, 2):               # TODO only modify this statement\n",
     "    print(\" \" * leading_spaces + \"*\" * star_count)\n",
     "    leading_spaces -= 1\n",
     "\n",
     "# Bottom half of diamond\n",
     "leading_spaces = 1\n",
-    "for star_count in range(1):               # TODO only modify this statement\n",
+    "for star_count in range(height - 2, 0, -2):               # TODO only modify this statement\n",
     "    print(\" \" * leading_spaces + \"*\" * star_count)\n",
     "    leading_spaces += 1"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "d78253eb",
+   "id": "3",
    "metadata": {},
    "source": [
     "## Question 2: Caesar Cipher Decryption\n",
@@ -103,8 +102,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "id": "4cd1c028",
+   "execution_count": 43,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -117,9 +115,9 @@
     "# TODO: create a loop from 1 to 25 to try all shifts\n",
     "#       decode the message and print the one containing 'python'\n",
     "#       The code below should be inside this loop\n",
-    "\n",
-    "for i in range():\n",
-    "    for shift in range(1):  #TODO fix range\n",
+    "for i in range (1,26,1):\n",
+    "    for shift in range(1,26,1):  #TODO fix range\n",
+    "        #FOR RANGE: LAST NUMBER NOT USED, SET TO 26 NOT 25, no need to add 0, because won't do anything\n",
     "\n",
     "        \n",
     "\n",
@@ -137,15 +135,27 @@
     "                decode_msg += character\n",
     "\n",
     "        # TODO add code to check if python is in the decoded message\n",
-    "        # if it is print out the decoded message and the shift value\n",
-    "\n",
-    "\n"
+    "    # if it is print out the decoded message and the shift value\n",
+    "    '''\n",
+    "    - decode message loop checks shift by shifting characters by an addition of 1 for\n",
+    "    each run\n",
+    "    - Need loop to stop when the word \"python\" appears \n",
+    "    - use loop to constantly check for the word python in decode_msg var\n",
+    "    - NOTED: WORDS ARE IN LOWERCASE - MAKE SURE PYTHON CHECK ALL LOWERCASE\n",
+    "    '''\n",
+    "    if 'python' in decode_msg:\n",
+    "        print(f\"decoded message: {decode_msg}\")\n",
+    "        print(f\"shift: {shift}\")\n",
+    "        break\n",
+    "    else: \n",
+    "        continue\n",
+    "    #nothing printing when running "
    ]
   }
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "venv",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
@@ -159,6 +169,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
+   "version": "3.10.18"
    "version": "3.10.18"
   }
  },
