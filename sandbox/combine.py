@@ -5,5 +5,5 @@ def combine(left, right):
 
     cnt = 0
 
-    while cnt < 50:
+    whilelen(l_cur)  cnt < 50:
         cnt += 1
