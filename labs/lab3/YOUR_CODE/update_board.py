@@ -1,6 +1,6 @@
 """ count_adjacent_mines.py Goes through the whole board and counts how many 
 mines are next to each square. Each number on the Minesweeper board shows how
- many mines are touching that cell. """ 
+many mines are touching that cell. """ 
 
 import globals as g from get_adjacent_cells import get_adjacent_cells 
 
