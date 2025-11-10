@@ -5,7 +5,7 @@ from update_board import reveal_cell
 from get_validated_input import get_validated_input
 from game_won import game_won
 from print_board import print_board
- 
+
 
 def play_minesweeper(): 
 
