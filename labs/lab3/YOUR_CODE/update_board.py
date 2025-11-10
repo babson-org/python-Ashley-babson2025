@@ -1,46 +1,36 @@
-"""
-update_board.py
-
-Handles revealing cells on the display board when a player clicks a square.
-If the chosen cell is a mine, the game ends.
-If it's a 0 (no adjacent mines), automatically reveals neighboring cells.
-"""
-
 import globals as g
 from get_adjacent_cells import get_adjacent_cells
 
-MINE_VALUE = 10  # Consistent with other files
-
+MINE_VALUE = 10
 
 def reveal_cell(row, col):
     """
-    Reveals a single cell on the display board.
+    Reveals a cell and recursively reveals neighbors if the cell is 0.
+    Updates g.display_board.
 
     Args:
-        row (int): row index
-        col (int): column index
+        row (int)
+        col (int)
 
     Returns:
-        bool: True if safe (not a mine), False if mine hit
+        bool: True if safe, False if mine hit
     """
 
-    # If already revealed, just ignore
-    if g.display_board[row][col] != g.HIDDEN:
+    # Already revealed
+    if g.display_board[row][col][0] != g.HIDDEN:
         return True
 
-    # If it's a mine — reveal and signal game over
-    if g.base_board[row][col] == MINE_VALUE:
-        g.display_board[row][col] = "*"
-        print("💣 BOOM! You hit a mine!")
+    # Mine hit
+    if g.base_board[row][col][1] == MINE_VALUE:
+        g.display_board[row][col] = ("💣", MINE_VALUE)
         return False
 
-    # Otherwise, reveal the cell value
-    g.display_board[row][col] = str(g.base_board[row][col])
+    # Reveal the cell
+    g.display_board[row][col] = (str(g.base_board[row][col][1]) if g.base_board[row][col][1] > 0 else " ", g.base_board[row][col][1])
 
-    # If there are no adjacent mines, reveal all connected empty cells
-    if g.base_board[row][col] == 0:
+    # If 0, recursively reveal neighbors
+    if g.base_board[row][col][1] == 0:
         for (r, c) in get_adjacent_cells(row, col):
-            if g.display_board[r][c] == g.HIDDEN:
-                reveal_cell(r, c)
+            reveal_cell(r, c)
 
     return True
