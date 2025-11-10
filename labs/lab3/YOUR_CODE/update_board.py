@@ -1,36 +1,36 @@
-import globals as g
-from get_adjacent_cells import get_adjacent_cells
+""" update_board.py Handles what happens when the player "clicks" a cell. If the cell has 0 mines around it, the function keeps revealing more nearby cells (this is called "flood fill"). """ 
 
-MINE_VALUE = 10
+import globals as g from get_adjacent_cells import get_adjacent_cells 
 
-def reveal_cell(row, col):
-    """
-    Reveals a cell and recursively reveals neighbors if the cell is 0.
-    Updates g.display_board.
+def reveal_cell(board, row, col, revealed): """ Reveals the chosen cell and expands if it’s a 0-cell. 
 
-    Args:
-        row (int)
-        col (int)
-
-    Returns:
-        bool: True if safe, False if mine hit
-    """
-
-    # Already revealed
-    if g.display_board[row][col][0] != g.HIDDEN:
-        return True
-
-    # Mine hit
-    if g.base_board[row][col][1] == MINE_VALUE:
-        g.display_board[row][col] = ("💣", MINE_VALUE)
-        return False
-
-    # Reveal the cell
-    g.display_board[row][col] = (str(g.base_board[row][col][1]) if g.base_board[row][col][1] > 0 else " ", g.base_board[row][col][1])
-
-    # If 0, recursively reveal neighbors
-    if g.base_board[row][col][1] == 0:
-        for (r, c) in get_adjacent_cells(row, col):
-            reveal_cell(r, c)
-
-    return True
+Args: 
+    board: the hidden board with all numbers and mines 
+    row, col: coordinates of the cell the player picked 
+    revealed: a set that keeps track of which cells are already shown 
+""" 
+ 
+# Stop if this cell has already been revealed 
+if (row, col) in revealed: 
+    return 
+ 
+# Mark the cell as revealed 
+revealed.add((row, col)) 
+ 
+cell_value = board[row][col] 
+ 
+# Show the correct symbol on the display board 
+if cell_value == 0: 
+    g.display_board[row][col] = g.BLANK  # blank = no mines nearby 
+elif cell_value == 10: 
+    g.display_board[row][col] = g.MINE   # show mine (💣) 
+else: 
+    g.display_board[row][col] = str(cell_value)  # show number 
+ 
+# If the cell is empty (0), automatically reveal all neighbors 
+if cell_value == 0: 
+    for (nr, nc) in get_adjacent_cells(row, col): 
+        if (nr, nc) not in revealed: 
+            # Recursive call: reveal the next cell 
+            reveal_cell(board, nr, nc, revealed) 
+ 

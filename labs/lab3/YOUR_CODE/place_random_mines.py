@@ -1,29 +1,59 @@
-"""
-function: place_random_mines
+''' 
 
-This function randomly adds a "mine" to different squares on the board.
-It updates the given board by placing a fixed number of mines (from globals.MINES),
-each represented by the value 10.
-"""
+function: place_random_mines 
 
-import random
-import globals as g  # Access global constants like ROWS, COLS, and MINES
+This function randomly adds a "mine" to different sqaures on the board. 
+The function will call board in order to place the mine in the cell of the board 
+similar to tic - tac - toe, placing a mine will mean putting a certain number 
+into the cell.  
+''' 
 
-MINE_VALUE = 10  # Value used to represent a mine
+""" 
+Randomly place mines on the board. 
+Args: 
+    board (list of lists): 2D board with empty cells (usually 0). 
+Returns: 
+    list of lists: Board with mines placed (marked as 10). 
+
+""" 
+
+import random #random is ALREADY BUILT INTO PYTHON  
+import globals #this is calling the OG board characters that we need 
 
 
-def place_random_mines(board):
-    """
-    Randomly place mines on the board.
+mine_val = 10  # Value to represent a mine  
 
-    Args:
-        board (list of lists): 2D board with empty cells (usually 0).
+#the board is a 2D list given as an array, again like tictactoe 
 
-    Returns:
-        list of lists: Board with mines placed (marked as 10).
-    """
-    mines_placed = 0
+def place_random_mines(board): 
 
-    # Keep placing until we reach the desired number of mines
-    while mines_placed < g.MINES:
-        row = random.randint(0, g.ROWS - 1)
+    mines_placed = 0 
+    while mines_placed < globals.MINES: 
+
+        #*refers to global 
+
+        #random row 
+
+        row = random.randint(0, globals.ROWS - 1) 
+
+        #random col 
+
+        col = random.randint(0, globals.COLS - 1) 
+
+         
+
+        # Only place mine if the cell is empty 
+
+        if board[row][col] != MINE_VALUE: 
+
+            board[row][col] = MINE_VALUE 
+
+            mines_placed += 1 
+
+     
+
+    return board 
+
+     
+
+ 

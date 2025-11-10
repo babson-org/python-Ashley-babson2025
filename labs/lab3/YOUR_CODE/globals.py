@@ -1,17 +1,34 @@
-"""
-globals.py
-Stores global variables used across Minesweeper modules.
-"""
+'''globals.py makes it easier to import information that will be used throughout  
 
-# Board settings
-ROWS = 8        # number of rows on the board
-COLS = 8        # number of columns on the board
-MINES = 10      # total number of mines
+game. We can just call the function rather than retyping all of the things we  
 
-# Display symbols
-HIDDEN = "■"    # symbol for unrevealed cell
-FLAG = "⚑"      # optional flag symbol
+need in the functions that use them.''' 
 
-# Boards (will be created in initialize_board)
-base_board = None
-display_board = None
+ 
+
+#configuration of the board 
+
+ROWS = None 
+
+COLS = None 
+
+MINES = None 
+
+ 
+
+# Symbols and characters for board 
+
+MINE = "💣" 
+
+HIDDEN = "⬧" 
+
+BLANK = " "     # for cells with 0 adjacent mines 
+
+ 
+
+# Boards  
+
+base_board = []     # holds the actual mines and numbers 
+display_board = []  # what the player sees 
+
+ 
