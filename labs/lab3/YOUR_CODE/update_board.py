@@ -1,40 +1,46 @@
 """
-count_adjacent_mines.py
+update_board.py
 
-Goes through the whole board and counts how many mines are next to each square.
-Each number on the Minesweeper board shows how many mines are touching that cell.
+Handles revealing cells on the display board when a player clicks a square.
+If the chosen cell is a mine, the game ends.
+If it's a 0 (no adjacent mines), automatically reveals neighboring cells.
 """
 
 import globals as g
 from get_adjacent_cells import get_adjacent_cells
 
-MINE_VALUE = 10  # We'll use 10 to represent a mine
+MINE_VALUE = 10  # Consistent with other files
 
 
-def count_adjacent_mines(board):
+def reveal_cell(row, col):
     """
-    Updates the board so that each non-mine cell shows how many mines are next to it.
+    Reveals a single cell on the display board.
 
     Args:
-        board (list of lists): the hidden board that has mine positions (10 = mine)
+        row (int): row index
+        col (int): column index
 
     Returns:
-        list of lists: the updated board with mine counts
+        bool: True if safe (not a mine), False if mine hit
     """
-    for r in range(g.ROWS):
-        for c in range(g.COLS):
 
-            # Skip cells that are mines
-            if board[r][c] == MINE_VALUE:
-                continue
+    # If already revealed, just ignore
+    if g.display_board[row][col] != g.HIDDEN:
+        return True
 
-            # Count how many of the neighbors are mines
-            mine_count = 0
-            for (nr, nc) in get_adjacent_cells(r, c):
-                if board[nr][nc] == MINE_VALUE:
-                    mine_count += 1
+    # If it's a mine — reveal and signal game over
+    if g.base_board[row][col] == MINE_VALUE:
+        g.display_board[row][col] = "*"
+        print("💣 BOOM! You hit a mine!")
+        return False
 
-            # Save that number back onto the board
-            board[r][c] = mine_count
+    # Otherwise, reveal the cell value
+    g.display_board[row][col] = str(g.base_board[row][col])
 
-    return board
+    # If there are no adjacent mines, reveal all connected empty cells
+    if g.base_board[row][col] == 0:
+        for (r, c) in get_adjacent_cells(row, col):
+            if g.display_board[r][c] == g.HIDDEN:
+                reveal_cell(r, c)
+
+    return True
