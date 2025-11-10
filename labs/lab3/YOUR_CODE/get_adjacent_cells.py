@@ -1,4 +1,4 @@
-""" get_adjacent_cells.py This file finds all the neighboring 
+    """ get_adjacent_cells.py This file finds all the neighboring 
 cells (around one square) that are still on the game board. 
 Each square can have up to 8 neighbors. """ 
 
