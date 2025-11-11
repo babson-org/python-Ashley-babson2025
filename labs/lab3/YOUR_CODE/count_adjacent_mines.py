@@ -4,20 +4,17 @@ import globals as g
 from get_adjacent_cells import get_adjacent_cells 
 
 MINE_VALUE = 10 # We'll use 10 to represent a mine 
-
 """ Updates the board so that each non-mine cell shows how many mines are next to it. 
-
 Args: 
     board: the hidden board that has mine positions (10 = mine) 
 """ 
 def count_adjacent_mines(board): 
     for r in range(g.ROWS): 
         for c in range(g.COLS): 
-    
             # Skip cells that are mines 
             if board[r][c] == MINE_VALUE: 
                 continue 
-    
+
             # Count how many of the neighbors are mines 
             mine_count = 0 
             for (nr, nc) in get_adjacent_cells(r, c): 
