@@ -19,22 +19,15 @@ def play_minesweeper():
     while True:  
 
         print_board(g.board, 0) 
-
         r, c = get_validated_input(g.ROWS, g.COLS, revealed) 
-
- 
 
         if g.board[r][c][1] == '💣': 
 
             print("💥Boom! You hit a mine, game over") 
-
             print_board(g.board, 1) 
-
             break 
-
         reveal_cell(g.board, r, c, revealed) 
-
-
+        
         display_symbol = str(g.board[r][c][1]) if g.board[r][c][1] != " " else " " 
         g.board[r][c] = (display_symbol, g.board[r][c][1]) 
 

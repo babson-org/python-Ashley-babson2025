@@ -6,8 +6,8 @@ Each square can have up to 8 neighbors.
 
 import globals as g
 
-def get_adjacent_cells(row, col):
-    """
+
+"""
     Finds all valid neighbors around a cell.
 
     Example:
@@ -20,7 +20,8 @@ def get_adjacent_cells(row, col):
 
     Returns:
         list of (row, col) tuples for every valid neighbor
-    """
+"""
+def get_adjacent_cells(row, col):
     neighbors = []
 
     # Check all possible directions around the cell
