@@ -35,22 +35,14 @@ def place_random_mines(board):
         #random row 
 
         row = random.randint(0, globals.ROWS - 1) 
-
         #random col 
-
         col = random.randint(0, globals.COLS - 1) 
-
-         
 
         # Only place mine if the cell is empty 
 
-        if board[row][col] != MINE_VALUE: 
-
-            board[row][col] = MINE_VALUE 
-
+        if board[row][col] != mine_val: 
+            board[row][col] = mine_val
             mines_placed += 1 
-
-     
 
     return board 
 

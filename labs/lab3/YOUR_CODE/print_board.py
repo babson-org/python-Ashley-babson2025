@@ -13,10 +13,7 @@ def print_board(board: list, level: int):
     ]
     '''
 
-    
-
     line_hash = '|-----'
-
     print('      ', end='')
     for idx in range(globals.COLS):
         print(f'   {idx}  ', end='')
