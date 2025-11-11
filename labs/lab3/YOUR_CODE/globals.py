@@ -2,12 +2,12 @@ ROWS = 5
 COLS = 6
 MINES = 3
 
-# Symbols and characters for board 
+# Symbols and characters
 MINE = "💣" 
 HIDDEN = "⬧" 
-BLANK = " "     # for cells with 0 adjacent mines 
+BLANK = " "     # no adj mines
 
 
 # Boards  
-base_board = []     # holds the actual mines and numbers 
-display_board = []  # what the player sees 
+base_board = []     # list holding mine and nums 
+display_board = []  #board with diamonds that player sees

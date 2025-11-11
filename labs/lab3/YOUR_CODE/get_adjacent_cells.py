@@ -1,25 +1,27 @@
 """ 
 get_adjacent_cells.py
-This file finds all the neighboring cells (around one square) that are still on the game board. 
+This file finds all the neighboring cells (around one square)
+ that are still on the game board. 
 Each square can have up to 8 neighbors.
-"""
 
-import globals as g
+how each square looks at surrounding squares:
 
-"""
-    Finds all valid neighbors around a cell.
+X | X | X |
+-----------
+X | NUM | X |
+------------
+X | X | X |
 
+Finds all valid neighbors around a cell.
     Example:
         The cell in the middle of a 3x3 area has 8 neighbors 
         (top, bottom, left, right, and diagonals).
 
-    Args:
-        row (int): Row number of the chosen cell
-        col (int): Column number of the chosen cell
-
-    Returns:
-        list of (row, col) tuples for every valid neighbor
 """
+
+import globals as g
+
+
 def get_adjacent_cells(row, col):
     neighbors = []
     # Check all possible directions around the cell

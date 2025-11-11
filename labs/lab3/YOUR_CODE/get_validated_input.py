@@ -1,8 +1,9 @@
 def get_validated_input(rows, cols, revealed): 
 
 #Ask user for row and column until valid input is given 
-
-#Ensures within bounds of boards and is not already revealed 
+#USER PICKES SQUARE TO REVEAL
+#Ensures within bounds of boards and is not already revealed  
+# by checking if within board set up
 
     while True: 
 

@@ -1,24 +1,16 @@
-""" update_board.py Handles what happens when the player "clicks" a cell. If the cell has 0 mines around it, the function keeps revealing more nearby cells (this is called "flood fill"). """ 
+""" update_board.py Handles what happens when the player "clicks" a cell. 
+If the cell has 0 mines around it, the function keeps revealing more nearby cells 
+""" 
 
 import globals as g 
 from get_adjacent_cells import get_adjacent_cells 
 
-""" Reveals the chosen cell and expands if it’s a 0-cell. 
-
-Args: 
-    board: the hidden board with all numbers and mines 
-    row, col: coordinates of the cell the player picked 
-    revealed: a set that keeps track of which cells are already shown 
-""" 
- 
 # Stop if this cell has already been revealed 
 def reveal_cell(board, row, col, revealed):
     if (row, col) in revealed: 
         return 
-    
     # Mark the cell as revealed 
     revealed.add((row, col)) 
-    
     cell_value = board[row][col] 
     
     # Show the correct symbol on the display board 

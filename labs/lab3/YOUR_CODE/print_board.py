@@ -1,5 +1,10 @@
 import globals
-
+'''
+Prints the Minesweeper board in a formatted grid.
+It labels rows and columns, then displays either 
+the hidden or revealed state of each cell based on the given level.
+Each cell is shown with its symbol to represent the game board.
+'''
 def print_board(board: list, level: int):
     '''
     board = [

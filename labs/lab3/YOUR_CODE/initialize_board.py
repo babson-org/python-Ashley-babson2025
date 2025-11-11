@@ -1,9 +1,11 @@
 
-'''This functions sets up the board that the player will see 
+'''sets up the board that the player will see 
 using our previous written functions for our global variables and 
-placing random mines each time the user plays. The display board is 
-what shows the diamnds like the traditional game, but the base board 
-stays hidden and uses numbers in an array of lists to show where mines will go.'''
+placing random mines each time the user plays. 
+
+The display board shows diamonds like usual game
+Base board stays hidden and uses numbers in an array 
+of lists to show where mines will go.'''
 
  
 import globals as g 
