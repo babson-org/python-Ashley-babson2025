@@ -16,13 +16,13 @@ def play_minesweeper():
     revealed = set()
 
     while True:
-        print_board(g.board, 0)
+        print_board(g.display_board, 0)
         r, c = get_validated_input(g.ROWS, g.COLS, revealed)
 
         # A mine is represented by the number 10 (from count_adjacent_mines)
         if g.board[r][c] == 10:
-            print("Boom! You hit a mine, game over")
-            print_board(g.board, 1)
+            print("BOOOOOM! You hit a mine, game over")
+            print_board(g.display_board, 1)
             break
 
         # Reveal the selected cell
@@ -33,12 +33,9 @@ def play_minesweeper():
         g.display_board[r][c] = display_symbol
 
         if game_won(g.board, revealed):
-            print_board(g.board, 0)
-            print("Congrats, You cleared the board")
+            print_board(g.display_board, 0)
+            print("YOU CLEARED THE BOARD!")
             break
 
 if __name__ == "__main__":
     play_minesweeper()
-
-
- 
