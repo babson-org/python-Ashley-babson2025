@@ -6,39 +6,39 @@ from get_validated_input import get_validated_input
 from game_won import game_won
 from print_board import print_board
 
+def play_minesweeper():
+    print("💣 Welcome to Minesweeper!")
 
-def play_minesweeper(): 
+    # Create the hidden mine layout
+    g.board = initialize_board()
+    count_adjacent_mines(g.board)
 
-    print("💣 Welcome to Minesweeper!") 
+    revealed = set()
 
-    g.board = initialize_board() 
-    count_adjacent_mines(g.board) 
+    while True:
+        print_board(g.board, 0)
+        r, c = get_validated_input(g.ROWS, g.COLS, revealed)
 
-    revealed = set() 
+        # A mine is represented by the number 10 (from count_adjacent_mines)
+        if g.board[r][c] == 10:
+            print("Boom! You hit a mine, game over")
+            print_board(g.board, 1)
+            break
 
-    while True:  
+        # Reveal the selected cell
+        reveal_cell(g.board, r, c, revealed)
 
-        print_board(g.board, 0) 
-        r, c = get_validated_input(g.ROWS, g.COLS, revealed) 
+        # Optional: handle display symbol (not tuple-based anymore)
+        display_symbol = " " if g.board[r][c] == 0 else str(g.board[r][c])
+        g.display_board[r][c] = display_symbol
 
-        if g.board[r][c][1] == '💣': 
+        if game_won(g.board, revealed):
+            print_board(g.board, 0)
+            print("Congrats, You cleared the board")
+            break
 
-            print("💥Boom! You hit a mine, game over") 
-            print_board(g.board, 1) 
-            break 
-        reveal_cell(g.board, r, c, revealed) 
-        
-        display_symbol = str(g.board[r][c][1]) if g.board[r][c][1] != " " else " " 
-        g.board[r][c] = (display_symbol, g.board[r][c][1]) 
+if __name__ == "__main__":
+    play_minesweeper()
 
-
-        if game_won(g.board, revealed): 
-            print_board(g.board, 0) 
-            print("Congrats! You cleared the board") 
-            break 
-
- 
-if __name__ == "__main__": 
-    play_minesweeper() 
 
  
