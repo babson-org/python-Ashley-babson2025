@@ -19,12 +19,12 @@ def portfolio_sell_stock(self, sym: str, shares: float, price: float):
     - Hint: the amount you reduce cost is NOT the same as the amount you increase cash
     """
     #check is sym is real
-    position = _find_position(self, sym)
-    if not position:
+    p = _find_position(self, sym)
+    if not p:
         print("Ticker symbol not in portfolio")
         return
 #make sure shares <= owned
-    if shares <= 0 or shares > position["shares"]:
+    if shares <= 0 or shares > p["shares"]:
         print("Invalid number of shares")
         return
 # get last close price
@@ -32,12 +32,12 @@ def portfolio_sell_stock(self, sym: str, shares: float, price: float):
     last_close = price_map[sym]
 #reduce pos shs
     proceeds = last_close * shares
-    position["shares"] -= shares
-    avg_cost_per_share = position["cost"] / (position["shares"] + shares)
-    position["cost"] -= avg_cost_per_share * shares
+    p["shares"] -= shares
+    avg_cost_per_share = p["cost"] / (p["shares"] + shares)
+    p["cost"] -= avg_cost_per_share * shares
 #remove pos is shs drop to 0 
-    if position["shares"] == 0:
-        self.positions.remove(position)
+    if p["shares"] == 0:
+        self.positions.remove(p)
 
 #increase self.cash --> DNE reduce cost
     self.cash += proceeds
