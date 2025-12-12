@@ -12,4 +12,7 @@ def portfolio_view_last_close(self):
     the main program does the rest!
     
     """
-    
+    symbols = [p["sym"] for p in self.positions]
+    return _prices.get_last_close_map(symbols)
+
+
